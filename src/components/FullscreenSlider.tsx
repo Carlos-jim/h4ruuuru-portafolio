@@ -83,7 +83,6 @@ export function FullscreenSlider() {
       >
         {slides.map((slide) =>
           slide.content === "TechStack" ? (
-            // Render the TechStack component
             <div
               key={slide.id}
               className="relative h-screen w-full flex items-center justify-center"
@@ -92,10 +91,9 @@ export function FullscreenSlider() {
               <TechStack />
             </div>
           ) : (
-            // Render other slides
             <div
               key={slide.id}
-              className="relative h-screen w-full flex items-center"
+              className="relative h-screen w-full flex items-center justify-center"
               style={{
                 background: "linear-gradient(135deg, #1e3a8a 0%, #4c1d95 100%)",
               }}
@@ -107,19 +105,19 @@ export function FullscreenSlider() {
                   className="h-full w-full object-cover opacity-80"
                 />
               </div>
-              <div className="relative z-10 container mx-auto px-12">
-                <span className="text-white/80 text-xl mb-4 block">
+              <div className="relative z-10 container mx-auto px-6 sm:px-12">
+                <span className="text-white/80 text-sm sm:text-xl mb-4 block">
                   {slide.subtitle}
                 </span>
-                <h1 className="text-white text-8xl font-bold mb-8">
+                <h1 className="text-white text-4xl sm:text-8xl font-bold mb-8">
                   {slide.title}
                 </h1>
-                <p className="text-white/80 text-xl max-w-2xl mb-12">
+                <p className="text-white/80 text-sm sm:text-xl max-w-2xl mb-12">
                   {slide.description}
                 </p>
-                <button className="text-white border-b-2 border-white pb-2 flex items-center text-lg hover:border-white/70 transition-colors">
+                <button className="text-white border-b-2 border-white pb-2 flex items-center text-sm sm:text-lg hover:border-white/70 transition-colors">
                   Descargar CV
-                  <Download className="h-6 w-6 ml-2" />
+                  <Download className="h-5 w-5 sm:h-6 sm:w-6 ml-2" />
                 </button>
               </div>
             </div>
@@ -133,7 +131,7 @@ export function FullscreenSlider() {
           className="p-2 hover:text-white transition-colors"
           disabled={isTransitioning}
         >
-          <ChevronLeft className="h-8 w-8" />
+          <ChevronLeft className="h-6 w-6 sm:h-8 sm:w-8" />
         </button>
         <div className="flex items-center gap-4 font-medium">
           <span>{String(currentSlide + 1).padStart(2, "0")}</span>
@@ -152,7 +150,7 @@ export function FullscreenSlider() {
           className="p-2 hover:text-white transition-colors"
           disabled={isTransitioning}
         >
-          <ChevronRight className="h-8 w-8" />
+          <ChevronRight className="h-6 w-6 sm:h-8 sm:w-8" />
         </button>
       </div>
     </div>
