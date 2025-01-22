@@ -32,6 +32,7 @@ const slides = [
 export function FullscreenSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
+  const [touchStartY, setTouchStartY] = useState(0); // Para almacenar la posición de inicio del toque
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = (direction: "next" | "prev") => {
@@ -74,8 +75,31 @@ export function FullscreenSlider() {
     };
   }, [currentSlide, isTransitioning]);
 
+  // Detectar el deslizamiento en dispositivos móviles
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const touchStart = e.touches[0].clientY; // Obtener la posición Y inicial
+    setTouchStartY(touchStart);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const touchEnd = e.changedTouches[0].clientY; // Obtener la posición Y final
+    const touchDiff = touchStartY - touchEnd; // Calcular la diferencia de Y
+
+    if (Math.abs(touchDiff) > 50) {
+      if (touchDiff > 0) {
+        handleScroll("next"); // Deslizar hacia arriba, siguiente slide
+      } else {
+        handleScroll("prev"); // Deslizar hacia abajo, slide anterior
+      }
+    }
+  };
+
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div
+      className="relative h-screen w-full overflow-hidden"
+      onTouchStart={handleTouchStart} // Detectar inicio del toque
+      onTouchEnd={handleTouchEnd}   // Detectar final del toque
+    >
       <div
         ref={sliderRef}
         className="h-full transition-transform duration-1000 ease-in-out"
