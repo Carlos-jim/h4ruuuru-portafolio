@@ -1,14 +1,17 @@
+// path: components/FullscreenSlider.tsx
 "use client";
 
 import { ChevronLeft, ChevronRight, Download } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion"; // Importar Framer Motion
 import TechStack from "./mySkillsPage";
 import { slides } from "@/data/dataSlides";
+import { downloadCV } from "@/config/downloadcv";
 
 export function FullscreenSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [touchStartY, setTouchStartY] = useState(0); // Para almacenar la posición de inicio del toque
+  const [touchStartY, setTouchStartY] = useState(0);
   const sliderRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = (direction: "next" | "prev") => {
@@ -51,21 +54,20 @@ export function FullscreenSlider() {
     };
   }, [currentSlide, isTransitioning]);
 
-  // Detectar el deslizamiento en dispositivos móviles
   const handleTouchStart = (e: React.TouchEvent) => {
-    const touchStart = e.touches[0].clientY; // Obtener la posición Y inicial
+    const touchStart = e.touches[0].clientY;
     setTouchStartY(touchStart);
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    const touchEnd = e.changedTouches[0].clientY; // Obtener la posición Y final
-    const touchDiff = touchStartY - touchEnd; // Calcular la diferencia de Y
+    const touchEnd = e.changedTouches[0].clientY;
+    const touchDiff = touchStartY - touchEnd;
 
     if (Math.abs(touchDiff) > 50) {
       if (touchDiff > 0) {
-        handleScroll("next"); // Deslizar hacia arriba, siguiente slide
+        handleScroll("next");
       } else {
-        handleScroll("prev"); // Deslizar hacia abajo, slide anterior
+        handleScroll("prev");
       }
     }
   };
@@ -73,8 +75,8 @@ export function FullscreenSlider() {
   return (
     <div
       className="relative h-screen w-full overflow-hidden"
-      onTouchStart={handleTouchStart} // Detectar inicio del toque
-      onTouchEnd={handleTouchEnd}   // Detectar final del toque
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
     >
       <div
         ref={sliderRef}
@@ -106,19 +108,40 @@ export function FullscreenSlider() {
                 />
               </div>
               <div className="relative z-10 container mx-auto px-6 sm:px-12">
-                <span className="text-white/80 text-sm sm:text-xl mb-4 block">
+                <motion.span
+                  className="text-white/80 text-sm sm:text-xl mb-4 block"
+                  initial={{ x: "-100%" }} // Desde la izquierda
+                  animate={{ x: 0 }}
+                  transition={{ duration: 1 }}
+                >
                   {slide.subtitle}
-                </span>
-                <h1 className="text-white text-4xl sm:text-8xl font-bold mb-8">
+                </motion.span>
+                <motion.h1
+                  className="text-white text-4xl sm:text-8xl font-bold mb-8"
+                  initial={{ y: "-100%" }} // Desde arriba
+                  animate={{ y: 0 }}
+                  transition={{ duration: 1 }}
+                >
                   {slide.title}
-                </h1>
-                <p className="text-white/80 text-sm sm:text-xl max-w-2xl mb-12">
+                </motion.h1>
+                <motion.p
+                  className="text-white/80 text-sm sm:text-xl max-w-2xl mb-12"
+                  initial={{ x: "100%" }} // Desde la derecha
+                  animate={{ x: 0 }}
+                  transition={{ duration: 1 }}
+                >
                   {slide.description}
-                </p>
-                <button className="text-white border-b-2 border-white pb-2 flex items-center text-sm sm:text-lg hover:border-white/70 transition-colors">
+                </motion.p>
+                <motion.button
+                  className="text-white border-b-2 border-white pb-2 flex items-center text-sm sm:text-lg hover:border-white/70 transition-colors"
+                  initial={{ y: "100%" }} // Desde abajo
+                  animate={{ y: 0 }}
+                  transition={{ duration: 1 }}
+                  onClick={downloadCV}
+                >
                   Descargar CV
                   <Download className="h-5 w-5 sm:h-6 sm:w-6 ml-2" />
-                </button>
+                </motion.button>
               </div>
             </div>
           )
