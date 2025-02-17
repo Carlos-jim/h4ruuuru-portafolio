@@ -1,9 +1,9 @@
-// path: components/TechStack.tsx
 "use client";
 
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { technologies } from "@/data/dataSkills";
+import { useRef } from "react"; 
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -16,21 +16,27 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 1, scale: 1, transition: { duration: 0.5 } },
-  hover: { scale: 1.1, transition: { duration: 0.3 } },
+  hidden: { opacity: 0, y: 20, scale: 0.8 }, // Los íconos aparecen desde abajo
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } },
+  hover: { scale: 1.1, transition: { duration: 0.3 } }, // Efecto de hover
 };
 
 export default function TechStack() {
+  const ref = useRef(null); // Referencia para el contenedor
+  const isInView = useInView(ref, { once: true }); // Detecta si el contenedor está en la vista
+
   return (
     <div className="h-screen w-full bg-[#0c081d] relative overflow-hidden flex items-center justify-center p-8">
       <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#7ccefd] to-transparent blur-sm" />
       <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#7ccefd] to-transparent" />
+
+      {/* Contenedor de las tecnologías */}
       <motion.div
+        ref={ref} // Asigna la referencia al contenedor
         className="flex flex-wrap justify-center items-center gap-8 md:gap-16 max-w-4xl mx-auto"
         variants={containerVariants}
         initial="hidden"
-        animate="visible"
+        animate={isInView ? "visible" : "hidden"} // Activa la animación solo cuando está en la vista
       >
         {technologies.map((tech) => (
           <motion.div

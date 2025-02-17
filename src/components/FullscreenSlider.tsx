@@ -1,10 +1,10 @@
-// path: components/FullscreenSlider.tsx
 "use client";
 
 import { ChevronLeft, ChevronRight, Download } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
-import { motion } from "framer-motion"; // Importar Framer Motion
-import TechStack from "./mySkillsPage";
+import { motion } from "framer-motion";
+import TechStack from "./page/mySkillsPage";
+import SliderProjects from "./page/projectPage";
 import { slides } from "@/data/dataSlides";
 import { downloadCV } from "@/config/downloadcv";
 
@@ -83,69 +83,83 @@ export function FullscreenSlider() {
         className="h-full transition-transform duration-1000 ease-in-out"
         style={{ transform: `translateY(-${currentSlide * 100}%)` }}
       >
-        {slides.map((slide) =>
-          slide.content === "TechStack" ? (
-            <div
-              key={slide.id}
-              className="relative h-screen w-full flex items-center justify-center"
-              style={{ backgroundColor: "#1a1f2e" }}
-            >
-              <TechStack />
-            </div>
-          ) : (
-            <div
-              key={slide.id}
-              className="relative h-screen w-full flex items-center justify-center"
-              style={{
-                background: "linear-gradient(135deg, #1e3a8a 0%, #4c1d95 100%)",
-              }}
-            >
-              <div className="absolute inset-0">
-                <img
-                  src={slide.image || "/placeholder.svg"}
-                  alt=""
-                  className="h-full w-full object-cover opacity-80"
-                />
+        {slides.map((slide) => {
+          if (slide.content === "TechStack") {
+            return (
+              <div
+                key={slide.id}
+                className="relative h-screen w-full flex items-center justify-center"
+                style={{ backgroundColor: "#1a1f2e" }}
+              >
+                <TechStack />
               </div>
-              <div className="relative z-10 container mx-auto px-6 sm:px-12">
-                <motion.span
-                  className="text-white/80 text-sm sm:text-xl mb-4 block"
-                  initial={{ x: "-100%" }} // Desde la izquierda
-                  animate={{ x: 0 }}
-                  transition={{ duration: 1 }}
-                >
-                  {slide.subtitle}
-                </motion.span>
-                <motion.h1
-                  className="text-white text-4xl sm:text-8xl font-bold mb-8"
-                  initial={{ y: "-100%" }} // Desde arriba
-                  animate={{ y: 0 }}
-                  transition={{ duration: 1 }}
-                >
-                  {slide.title}
-                </motion.h1>
-                <motion.p
-                  className="text-white/80 text-sm sm:text-xl max-w-2xl mb-12"
-                  initial={{ x: "100%" }} // Desde la derecha
-                  animate={{ x: 0 }}
-                  transition={{ duration: 1 }}
-                >
-                  {slide.description}
-                </motion.p>
-                <motion.button
-                  className="text-white border-b-2 border-white pb-2 flex items-center text-sm sm:text-lg hover:border-white/70 transition-colors"
-                  initial={{ y: "100%" }} // Desde abajo
-                  animate={{ y: 0 }}
-                  transition={{ duration: 1 }}
-                  onClick={downloadCV}
-                >
-                  Descargar CV
-                  <Download className="h-5 w-5 sm:h-6 sm:w-6 ml-2" />
-                </motion.button>
+            );
+          } else if (slide.content === "SliderProjects") {
+            return (
+              <div
+                key={slide.id}
+                className="relative h-screen w-full flex items-center justify-center"
+                style={{ backgroundColor: "#0c081d" }}
+              >
+                <SliderProjects />
               </div>
-            </div>
-          )
-        )}
+            );
+          } else {
+            return (
+              <div
+                key={slide.id}
+                className="relative h-screen w-full flex items-center justify-center"
+                style={{
+                  background: "linear-gradient(135deg, #1e3a8a 0%, #4c1d95 100%)",
+                }}
+              >
+                <div className="absolute inset-0">
+                  <img
+                    src={slide.image || "/placeholder.svg"}
+                    alt=""
+                    className="h-full w-full object-cover opacity-80"
+                  />
+                </div>
+                <div className="relative z-10 container mx-auto px-6 sm:px-12">
+                  <motion.span
+                    className="text-white/80 text-sm sm:text-xl mb-4 block"
+                    initial={{ x: "-100%" }}
+                    animate={{ x: 0 }}
+                    transition={{ duration: 1 }}
+                  >
+                    {slide.subtitle}
+                  </motion.span>
+                  <motion.h1
+                    className="text-white text-4xl sm:text-8xl font-bold mb-8"
+                    initial={{ y: "-100%" }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 1 }}
+                  >
+                    {slide.title}
+                  </motion.h1>
+                  <motion.p
+                    className="text-white/80 text-sm sm:text-xl max-w-2xl mb-12"
+                    initial={{ x: "100%" }}
+                    animate={{ x: 0 }}
+                    transition={{ duration: 1 }}
+                  >
+                    {slide.description}
+                  </motion.p>
+                  <motion.button
+                    className="text-white border-b-2 border-white pb-2 flex items-center text-sm sm:text-lg hover:border-white/70 transition-colors"
+                    initial={{ y: "100%" }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 1 }}
+                    onClick={downloadCV}
+                  >
+                    Descargar CV
+                    <Download className="h-5 w-5 sm:h-6 sm:w-6 ml-2" />
+                  </motion.button>
+                </div>
+              </div>
+            );
+          }
+        })}
       </div>
 
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex items-center gap-8 text-white/80">

@@ -47,4 +47,8 @@ export const technologies = [
     name: "Python",
     logo: "https://img.icons8.com/?size=100&id=13441&format=png&color=000000",
   },
+  {
+    name: "Docker",
+    logo: "https://img.icons8.com/?size=100&id=22813&format=png&color=000000",
+  }
 ];
