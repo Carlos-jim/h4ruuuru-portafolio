@@ -6,7 +6,8 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const images = [
   { src: "/expertsystem.png", url: "https://github.com/Carlos-jim/expertsystem" },
-  { src: "/freeway.png", url: "https://github.com/Carlos-jim/freeway" }
+  { src: "/freeway.png", url: "https://github.com/Carlos-jim/freeway" },
+  {src: "/inventory.png", url: "https://github.com/Carlos-jim/inventory-system"}
 ];
 
 export default function FluidSlider() {
@@ -16,7 +17,7 @@ export default function FluidSlider() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
+    }, 15000);
 
     return () => clearInterval(interval);
   }, []);
