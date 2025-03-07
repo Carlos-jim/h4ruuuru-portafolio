@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const images = [
   { src: "/expertsystem.png", url: "https://github.com/Carlos-jim/expertsystem" },
   { src: "/freeway.png", url: "https://github.com/Carlos-jim/freeway" },
-  {src: "/inventory.png", url: "https://github.com/Carlos-jim/inventory-system"}
+  { src: "/inventory.png", url: "https://github.com/Carlos-jim/inventory-system" }
 ];
 
 export default function FluidSlider() {
@@ -35,9 +35,9 @@ export default function FluidSlider() {
   };
 
   return (
-    <div className="relative w-full max-w-3xl mx-auto overflow-hidden rounded-lg shadow-lg">
+    <div className="relative w-full max-w-3xl sm:max-w-xl md:max-w-2xl lg:max-w-3xl mx-auto overflow-hidden rounded-lg shadow-lg">
       <div
-        className="relative w-full h-[400px] cursor-pointer"
+        className="relative w-full h-auto aspect-[16/9] cursor-pointer"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
         onClick={handleImageClick}
