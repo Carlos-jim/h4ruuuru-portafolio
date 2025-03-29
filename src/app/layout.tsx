@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portafolio Carlos Jimenz",
+  title: "Portafolio Carlos Jimenez",
   description: "",
 };
 
