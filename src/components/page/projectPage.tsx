@@ -46,13 +46,12 @@ export default function SliderProjects() {
                 </div>
               </div>
               <div>
-                <p className="text-lg text-zinc-300 mb-8">
+                <p className="text-lg text-zinc-300 mb-2">
                   Un sistema experto que ayuda a personas con poco conocimiento
                   en biologia a identificar los Phylum de un animal
                 </p>
-
-                <div className="mb-8">
-                  <h3 className="text-lg font-medium mb-4">
+                <div className="mb-8 md:mb-2">
+                  <h3 className="text-lg font-medium mb-2">
                     Caracteristicas principales:
                   </h3>
                   <ul className="space-y-2">
@@ -77,7 +76,7 @@ export default function SliderProjects() {
                   </ul>
                 </div>
                 <div className="mb-8">
-                  <h3 className="text-lg font-medium mb-4">
+                  <h3 className="text-lg font-medium mb-2">
                     Tecnologias usadas:
                   </h3>
                   <div className="flex flex-wrap gap-2">
