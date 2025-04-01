@@ -98,7 +98,7 @@ export function FullscreenSlider() {
             return (
               <div
                 key={slide.id}
-                className="relative h-screen w-full flex items-center justify-center"
+                className="relative w-full flex items-center justify-center"
                 style={{ backgroundColor: "#0c081d" }}
               >
                 <SliderProjects />

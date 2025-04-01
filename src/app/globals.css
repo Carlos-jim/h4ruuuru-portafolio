@@ -61,6 +61,29 @@ body {
     --chart-5: 340 75% 55%;
   }
 }
+/* Asegura que los elementos flex no desborden */
+.flex-col {
+  min-height: 0;
+}
+
+/* Mejora el scroll para el contenido */
+.overflow-y-auto {
+  scrollbar-width: thin;
+  scrollbar-color: #4f46e5 #1a1a1a;
+}
+
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background-color: #4f46e5;
+  border-radius: 4px;
+}
 
 @layer base {
   * {

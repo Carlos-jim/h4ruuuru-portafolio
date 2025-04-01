@@ -12,7 +12,7 @@ export default {
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        "bg-text": {
+        "primario": {
           DEFAULT: "#065486", // o 'hsl(204, 91%, 28%)'
           50: "#f0f8ff",
           100: "#e0f1fe",
