@@ -75,7 +75,7 @@ export default function SliderProjects() {
                     </li>
                   </ul>
                 </div>
-                <div className="mb-8">
+                <div className="mb-2">
                   <h3 className="text-lg font-medium mb-2">
                     Tecnologias usadas:
                   </h3>
