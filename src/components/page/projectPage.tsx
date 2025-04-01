@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function SliderProjects() {
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-[#0c081d] text-white">
       <main className="max-w-8xl mx-auto p-6">
         <div className="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800">
           <div className="p-6 md:p-10">
@@ -23,16 +23,22 @@ export default function SliderProjects() {
                   height={600}
                   className="rounded-lg w-full object-cover"
                 />
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <Link href="https://expertsystem-pi.vercel.app/home" target="_blank">
-                    <Button className="bg-primario-600 hover:bg-primario-700 text-white px-8 py-6">
+                <div className="flex flex-row gap-4 pt-4 flex-wrap">
+                  <Link
+                    href="https://expertsystem-pi.vercel.app/home"
+                    target="_blank"
+                  >
+                    <Button className="bg-primario-600 hover:bg-primario-700 text-white px-4 md:px-8 py-4 md:py-6 text-sm md:text-base">
                       View Demo
                     </Button>
                   </Link>
-                  <Link href="https://github.com/Carlos-jim/expertsystem" target="_blank">
+                  <Link
+                    href="https://github.com/Carlos-jim/expertsystem"
+                    target="_blank"
+                  >
                     <Button
                       variant="outline"
-                      className="hover:bg-zinc-800 text-black px-8 py-6"
+                      className="hover:bg-zinc-800 text-black px-4 md:px-8 py-4 md:py-6 text-sm md:text-base"
                     >
                       View Code
                     </Button>
@@ -46,7 +52,9 @@ export default function SliderProjects() {
                 </p>
 
                 <div className="mb-8">
-                  <h3 className="text-lg font-medium mb-4">Caracteristicas principales:</h3>
+                  <h3 className="text-lg font-medium mb-4">
+                    Caracteristicas principales:
+                  </h3>
                   <ul className="space-y-2">
                     <li className="flex items-start">
                       <span className="h-2 w-2 bg-primario-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>

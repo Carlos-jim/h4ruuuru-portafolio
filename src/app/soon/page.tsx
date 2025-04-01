@@ -38,12 +38,10 @@ export default function ComingSoonPage() {
 
   return (
     <div className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-black text-white p-4">
-      {/* Animated background grid */}
       <div className="absolute inset-0 z-0">
         <Grid />
       </div>
 
-      {/* Glowing orb */}
       <motion.div
         className="absolute z-0 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 opacity-20 blur-3xl"
         initial={{ scale: 0.8, opacity: 0.1 }}
@@ -73,7 +71,6 @@ export default function ComingSoonPage() {
           </div>
         </motion.div>
 
-        {/* Title */}
         <motion.h1
           className="text-4xl md:text-6xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-blue-500"
           initial={{ opacity: 0, y: 20 }}
@@ -93,7 +90,6 @@ export default function ComingSoonPage() {
          Se esta trabajando en el sitio web, pero no te preocupes, ¡ya casi está listo! <br /> <br />
         </motion.p>
 
-        {/* Countdown */}
         <motion.div
           className="grid grid-cols-4 gap-4 mb-12"
           initial={{ opacity: 0, y: 20 }}
