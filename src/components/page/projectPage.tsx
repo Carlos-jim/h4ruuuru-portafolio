@@ -30,7 +30,7 @@ export default function SliderProjects() {
                     target="_blank"
                   >
                     <Button className="bg-primario-600 hover:bg-primario-700 text-white px-4 md:px-8 py-4 md:py-6 text-sm md:text-base">
-                      View Demo
+                      Ver sitio
                     </Button>
                   </Link>
                   <Link
@@ -41,7 +41,7 @@ export default function SliderProjects() {
                       variant="outline"
                       className="hover:bg-zinc-800 text-black px-4 md:px-8 py-4 md:py-6 text-sm md:text-base"
                     >
-                      View Code
+                      Ver código
                     </Button>
                   </Link>
                 </div>
@@ -106,7 +106,7 @@ export default function SliderProjects() {
                 </div>
 
                 <div className="flex align-items-center justify-end mt-8">
-                  <Link href="/soon">
+                  <Link href="/projects">
                     <Button className="bg-primario-600 hover:bg-primario-700 text-white px-8 py-6">
                       Ver más proyectos
                     </Button>
