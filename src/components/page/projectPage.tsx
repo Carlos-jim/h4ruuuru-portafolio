@@ -6,7 +6,8 @@ export default function SliderProjects() {
   return (
     <div className="min-h-screen bg-[#0c081d] text-white">
       <main className="max-w-8xl mx-auto p-6">
-        <div className="bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800">
+        <div className="bg-zinc-900/40 backdrop-blur-md border border-white/10 rounded-xl overflow-hidden">
+
           <div className="p-6 md:p-10">
             <div className="flex flex-col md:flex-row justify-between items-start gap-4 mb-2">
               <div>
@@ -75,9 +76,9 @@ export default function SliderProjects() {
                     </li>
                   </ul>
                 </div>
-                <div className="mb-2">
+                <div className="mb-2 hidden sm:block">
                   <h3 className="text-lg font-medium mb-2">
-                    Tecnologias usadas:
+                    Tecnologías usadas:
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     <span className="px-3 py-1 bg-primario-900/40 text-primario-400 rounded-md text-sm">
@@ -103,6 +104,7 @@ export default function SliderProjects() {
                     </span>
                   </div>
                 </div>
+
                 <div className="flex align-items-center justify-end mt-8">
                   <Link href="/soon">
                     <Button className="bg-primario-600 hover:bg-primario-700 text-white px-8 py-6">
