@@ -1,5 +1,6 @@
 "use client";
 import FreewayAirlines from "@/components/projects/freeway";
+import SistemaDonaciones from "@/components/projects/donaciones";
 import Inventory from "@/components/projects/inventory";
 import Portafolio from "@/components/projects/portafoli";
 import { motion } from "framer-motion";
@@ -34,6 +35,9 @@ export default function ProjectsPage() {
         </motion.p>
 
         <motion.div className="space-y-24" variants={containerVariants}>
+          <motion.div variants={containerVariants}>
+            <SistemaDonaciones />
+          </motion.div>
           <motion.div variants={containerVariants}>
             <FreewayAirlines />
           </motion.div>

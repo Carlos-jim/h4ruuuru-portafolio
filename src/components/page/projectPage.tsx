@@ -102,6 +102,12 @@ export default function SliderProjects() {
                     <span className="px-3 py-1 bg-primario-900/40 text-primario-400 rounded-md text-sm">
                       Tailwind CSS
                     </span>
+                    <span className="px-3 py-1 bg-primario-900/40 text-primario-400 rounded-md text-sm">
+                      TensorFlow
+                    </span>
+                    <span className="px-3 py-1 bg-primario-900/40 text-primario-400 rounded-md text-sm">
+                      Flask
+                    </span>
                   </div>
                 </div>
 
