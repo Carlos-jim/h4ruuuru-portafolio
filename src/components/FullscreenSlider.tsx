@@ -1,6 +1,12 @@
 "use client";
 
-import { ChevronLeft, ChevronRight, Download } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Download,
+  Github,
+  Linkedin,
+} from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 import TechStack from "./page/mySkillsPage";
@@ -110,7 +116,8 @@ export function FullscreenSlider() {
                 key={slide.id}
                 className="relative h-screen w-full flex items-center justify-center"
                 style={{
-                  background: "linear-gradient(135deg, #1e3a8a 0%, #4c1d95 100%)",
+                  background:
+                    "linear-gradient(135deg, #1e3a8a 0%, #4c1d95 100%)",
                 }}
               >
                 <div className="absolute inset-0">
@@ -155,6 +162,34 @@ export function FullscreenSlider() {
                     Descargar CV
                     <Download className="h-5 w-5 sm:h-6 sm:w-6 ml-2" />
                   </motion.button>
+                  {slide.showButtons && (
+                    <div className="mt-8 flex items-center gap-4">
+                      <motion.a
+                        href={slide.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-white transition-colors"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 1.2 }}
+                        whileHover={{ scale: 1.2 }}
+                      >
+                        <Github size={24} color="#ffffff" />
+                      </motion.a>
+                      <motion.a
+                        href={slide.linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-white transition-colors"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1, delay: 1.4 }}
+                        whileHover={{ scale: 1.2 }}
+                      >
+                        <Linkedin size={24} color="#ffffff" />
+                      </motion.a>
+                    </div>
+                  )}
                 </div>
               </div>
             );
