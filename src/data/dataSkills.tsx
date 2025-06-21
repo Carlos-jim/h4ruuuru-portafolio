@@ -17,7 +17,7 @@ export const technologies = [
   },
   {
     name: "Next.js",
-    logo: "https://img.icons8.com/?size=100&id=AU6Wc7r56Fxz&format=png&color=000000",
+    logo: "https://img.icons8.com/?size=100&id=MWiBjkuHeMVq&format=png&color=000000",
   },
   {
     name: "Github",
@@ -29,7 +29,7 @@ export const technologies = [
   },
   {
     name: "NodeJS",
-    logo: "https://img.icons8.com/?size=100&id=hsPbhkOH4FMe&format=png&color=000000",
+    logo: "https://img.icons8.com/?size=100&id=54087&format=png&color=000000",
   },
   {
     name: "Tailwind",
@@ -50,5 +50,13 @@ export const technologies = [
   {
     name: "Docker",
     logo: "https://img.icons8.com/?size=100&id=22813&format=png&color=000000",
-  }
+  },
+  {
+    name: "PostgreSQL",
+    logo: "https://img.icons8.com/?size=100&id=Pv4IGT0TSpt8&format=png&color=000000",
+  },
+  {
+    name: "Postman",
+    logo: "https://img.icons8.com/?size=100&id=EPbEfEa7o8CB&format=png&color=000000",
+  },
 ];
